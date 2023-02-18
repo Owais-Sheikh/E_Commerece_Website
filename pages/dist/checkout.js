@@ -1,0 +1,57 @@
+"use strict";
+exports.__esModule = true;
+var react_1 = require("react");
+var ai_1 = require("react-icons/ai");
+var checkout = function (props) {
+    return react_1["default"].createElement("div", { className: 'flex flex-col md:flex-row lg:flex-row' },
+        react_1["default"].createElement("section", { className: "text-gray-600 body-font relative w-50%" },
+            react_1["default"].createElement("div", { className: "container px-5 py-24 m-2 md:mx-auto lg:mx-auto" },
+                react_1["default"].createElement("div", { className: "flex flex-col text-center mb-12" },
+                    react_1["default"].createElement("h1", { className: "sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900" }, "Shipping Detail")),
+                react_1["default"].createElement("div", { className: "lg:w-3/4 md:w-2/3 mx-auto" },
+                    react_1["default"].createElement("div", { className: "flex flex-wrap -m-2" },
+                        react_1["default"].createElement("div", { className: "p-2 w-1/2" },
+                            react_1["default"].createElement("div", { className: "relative" },
+                                react_1["default"].createElement("label", { htmlFor: "name", className: "leading-7 text-sm text-gray-600" }, "Name"),
+                                react_1["default"].createElement("input", { type: "text", id: "name", name: "name", className: "w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" }))),
+                        react_1["default"].createElement("div", { className: "p-2 w-1/2" },
+                            react_1["default"].createElement("div", { className: "relative" },
+                                react_1["default"].createElement("label", { htmlFor: "email", className: "leading-7 text-sm text-gray-600" }, "Email"),
+                                react_1["default"].createElement("input", { type: "email", id: "email", name: "email", className: "w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" }))),
+                        react_1["default"].createElement("div", { className: "p-2 w-full" },
+                            react_1["default"].createElement("div", { className: "relative" },
+                                react_1["default"].createElement("label", { htmlFor: "message", className: "leading-7 text-sm text-gray-600" }, "Address"),
+                                react_1["default"].createElement("textarea", { id: "message", name: "message", cols: 30, rows: 2, className: "w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out" }))),
+                        react_1["default"].createElement("div", { className: "p-2 w-1/2" },
+                            react_1["default"].createElement("div", { className: "relative" },
+                                react_1["default"].createElement("label", { htmlFor: "name", className: "leading-7 text-sm text-gray-600" }, "City"),
+                                react_1["default"].createElement("input", { type: "text", id: "name", name: "name", className: "w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" }))),
+                        react_1["default"].createElement("div", { className: "p-2 w-1/2" },
+                            react_1["default"].createElement("div", { className: "relative" },
+                                react_1["default"].createElement("label", { htmlFor: "email", className: "leading-7 text-sm text-gray-600" }, "Phone No"),
+                                react_1["default"].createElement("input", { type: 'tel', id: "email", name: "email", className: "w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" }))))))),
+        react_1["default"].createElement("div", { className: 'bg-slate-100' },
+            react_1["default"].createElement("div", { className: 'container mx-auto mt-20 px-8' },
+                react_1["default"].createElement("div", { className: "flex flex-col text-center mb-12 w-96" },
+                    react_1["default"].createElement("h1", { className: "sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900" }, "Order Detail")),
+                react_1["default"].createElement("ol", { className: 'list-decimal my-5' },
+                    Object.keys(props.cart).length == 0 && react_1["default"].createElement("div", null, "No item in the cart"),
+                    Object.keys(props.cart).map(function (owais) {
+                        return react_1["default"].createElement("li", { key: owais, className: ' mb-2' },
+                            react_1["default"].createElement("div", { className: 'flex items-center justify-between' },
+                                react_1["default"].createElement("div", null,
+                                    props.cart[owais].name, " (" + props.cart[owais].size + " / " + props.cart[owais].color + ")"),
+                                react_1["default"].createElement("div", { className: 'flex items-center ml-6' },
+                                    react_1["default"].createElement("span", { onClick: function () { props.removetoCart(owais, 1, props.cart[owais].name, props.cart[owais].size, props.cart[owais].color, props.cart[owais].price); }, className: 'm-2 text-indigo-800 cursor-pointer' },
+                                        react_1["default"].createElement(ai_1.AiFillMinusCircle, null)),
+                                    react_1["default"].createElement("div", null, props.cart[owais].quantity),
+                                    react_1["default"].createElement("span", { onClick: function () { props.addtoCart(owais, 1, props.cart[owais].name, props.cart[owais].size, props.cart[owais].color, props.cart[owais].price); }, className: 'm-2 text-indigo-800 cursor-pointer' },
+                                        react_1["default"].createElement(ai_1.AiFillPlusCircle, null)))));
+                    })),
+                react_1["default"].createElement("div", { className: 'font-semibold' },
+                    "Subtotal = Rs. ",
+                    props.total)),
+            react_1["default"].createElement("div", { className: "mt-7 p-2 w-full" },
+                react_1["default"].createElement("button", { className: "flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg mb-10" }, "Pay"))));
+};
+exports["default"] = checkout;
